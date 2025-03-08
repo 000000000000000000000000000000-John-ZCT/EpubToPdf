@@ -1,7 +1,10 @@
 import pdfkit
 import os
-from PyPDF2 import PdfFileMerger
-from PyPDF2.utils import PdfReadError
+from PyPDF2 import PdfMerger 
+try:
+    from PyPDF2.errors import PdfReadError
+except ImportError:
+    from PyPDF2.utils import PdfReadError
 
 
 class PdfEngine(object):
@@ -40,11 +43,11 @@ class PdfEngine(object):
 
 	def combine(self):
 
-		merger = PdfFileMerger()
+		merger = PdfMerger()
 
 		for pdf in self.pdf_files:
 			try:
-				merger.append(pdf, import_bookmarks=False)
+				merger.append(pdf, import_outline=False)
 			except PdfReadError:
 				pass
 

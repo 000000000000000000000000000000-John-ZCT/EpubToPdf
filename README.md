@@ -41,3 +41,9 @@ Run the main.py file, adding the name of the epub file as a commandline argument
 As shown below:
 
 ```python main.py epub-file-name```
+
+Or edit the Simple Launcher BatchFile
+
+type your book name into `<yourbookname>` for the `python .\main.py <yourbookname>.epub`
+
+The name must be type in english
